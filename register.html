@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Pagte</title>
+    <!-- <link rel="stylesheet" href="register.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
+</head>
+<body>
+       
+    <div class="container">
+        <h2>Sign Up</h2>
+        <p>Fill up your Information</p>
+        <form id="form">
+            <div id="nameBox">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                    <small id="name-error" style="color: red;"></small>
+            </div>
+            <div id="emailBox">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email" required>
+                    <small id="email-error" style="color: red;"></small>
+            </div>
+            <div id="passwordBox">
+                <label for="name">Password</label>
+                <input type="password" id="password" minlength="6" placeholder="Enter your password" required>
+                    <small id="password-error" style="color: red;"></small>
+                </div>
+                <div id="cpasswordBox">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" id="cpassword" minlength="6" placeholder="Confirm Your Password" required>
+                    <small id="cpassword-error" style="color: red;"></small>
+            </div>
+            <button type="submit" id="btn">Sign Up</button>
+        </div>
+    </div>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Log in</a>
+    </div>
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+    <script src="register.js"></script>
+</body>
+</html>

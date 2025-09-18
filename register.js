@@ -1,0 +1,104 @@
+
+let btn = document.querySelector("#form");
+
+
+function isEmailExists(email){
+    let user  = localStorage.getItem(email.toString());
+    
+    return user !== null;
+}
+
+
+
+function validateName(name) {
+  const regex = /^[A-Za-z]+\.?( [A-Za-z]+\.?)*$/;
+  return regex.test(name.trim());
+}
+
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+function validatePassword(password) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  return regex.test(password);
+}
+
+// console.log(validateEmail("hasdhjashldlka#"));
+
+
+
+btn.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let name  = document.querySelector("#name").value ;
+    let email  = document.querySelector("#email").value ;
+    let password  = document.querySelector("#password").value ;
+    let cpassword  = document.querySelector("#cpassword").value ;
+
+
+    document.getElementById("name-error").textContent = "";
+  document.getElementById("email-error").textContent = "";
+  document.getElementById("password-error").textContent = ""
+
+
+    let isValid = true;
+
+    if (!validateName(name)) {
+    document.getElementById("name-error").textContent =
+      "Name can only contain letters and dots (e.g., Md. Faysal)";
+    isValid = false;
+  }
+
+  if(isEmailExists(email)){
+      document.getElementById("email-error").textContent =
+      "Enter a valid email address.";
+    isValid = false;
+  }
+  // Validate Email
+  if (!validateEmail(email)) {
+    document.getElementById("email-error").textContent =
+      "Enter a valid email address.";
+    isValid = false;
+  }
+
+ 
+    
+
+     // Validate Password
+  if (!validatePassword(password)) {
+    document.getElementById("password-error").textContent =
+      "Password must be 6+ chars, include uppercase, lowercase, number, special char.";
+    isValid = false;
+  }
+  // if(password!==cpassword){
+  //   document.getElementById("cpassword-error").textContent ="Password doesn't match"
+  //   isValid=false;
+  // }
+
+  if (isValid) {
+    alert("Registration successfull!");
+
+    const obj ={
+        "name" : name,
+        "email" : email,
+        "password" : password,
+        // "cart":{
+            
+        // }
+    }
+
+    localStorage.setItem(email.toString(),JSON.stringify(obj));
+
+    setTimeout(()=>{
+        window.location.href = `login.html?email=${email}`;
+    },1000)
+    
+  }
+
+    
+
+
+
+})
+
