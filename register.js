@@ -9,7 +9,7 @@ function isEmailExists(email) {
 function validateName(name) {
   const regex = /^(?![0-9]+$)[a-zA-Z0-9 ]{2,}$/;
 
-  return regex.test(name);
+  return regex.test(name.split(" ").join(""));
 }
 
 function validateEmail(email) {
@@ -40,13 +40,13 @@ btn.addEventListener("submit", (e) => {
 
   if (!validateName(name)) {
     document.getElementById("name-error").textContent =
-      "Name can only contain letters and dots (e.g., Md. Faysal)";
+      "Name can only contain letters and numbers(e.g., Md Faysal 45)";
     isValid = false;
   }
 
   if (isEmailExists(email)) {
     document.getElementById("email-error").textContent =
-      "Enter a valid email address.";
+      "Email address already exists";
     isValid = false;
   }
   // Validate Email
