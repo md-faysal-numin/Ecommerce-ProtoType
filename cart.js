@@ -25,11 +25,7 @@ if(email !==null){
     })
     
     
-    dashBtn.addEventListener("click",()=>{
-         setTimeout(()=>{
-            window.location.href = `dashboard.html`;
-        },1000)
-    })
+    
     logoutBtn.addEventListener("click",()=>{
             setTimeout(()=>{
                 (function logout() {
@@ -41,5 +37,16 @@ if(email !==null){
     })
 }
 else{
+      let logoutBtn = document.querySelector("#logoutBtn");
+      logoutBtn.style.visibility ="hidden";
+    //   let logoutBtn = document.querySelector("#logoutBtn");
+    //   logoutBtn.style.visibility ="hidden";
+
 
 }
+
+dashBtn.addEventListener("click",()=>{
+         setTimeout(()=>{
+            window.location.href = `dashboard.html`;
+        },1000)
+    })
